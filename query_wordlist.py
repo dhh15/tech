@@ -28,7 +28,7 @@ for cat in wordlist:
 
 
     
-
+#building empty context list, a dict-object of yearly keyword contexts
 for i in range(1880, 1911):
     global contexts
     contexts.update( { str(i) : dict() } )
@@ -36,12 +36,14 @@ for i in range(1880, 1911):
         for t in wordlist[w]:
             contexts[str(i)].update( { t : [] } )
 
+
+# method for extracting year from a filename
 def get_year_from_filename(filename):
     year = re.split("_", filename)[4]
     year = re.split("-", year)[0]
     return year  
 
-
+# matching a word to predefined wordlist
 def locate_word(word, filename):
     test = None
     year = get_year_from_filename(filename)
@@ -55,6 +57,8 @@ def locate_word(word, filename):
                 test = t
             
     return test
+
+# analyzing a word from the raw data
 
 def query_file(file_as_string, filename):
     global counter
@@ -77,13 +81,15 @@ def query_file(file_as_string, filename):
                
             
                         
-
+#actual script
 
 for i in filelist:
     file = open(i, "r").read()    
     query_file(file, i)
         
 freqs = dict()
+
+#producing the output
 
 for year in contexts:
     freq = 0
