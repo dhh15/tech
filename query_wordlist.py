@@ -21,7 +21,7 @@ contexts= dict()
 filelist = []
 for i in FOLDS:
     f_list = os.listdir(BASE_URL+i)
-    f_list = [BASE_URL+i+f for f in f_list]
+    f_list = [BASE_URL+i+"/"+f for f in f_list]
     filelist.extend(f_list)
 
 # res is the main ouput object, a Python dict()
