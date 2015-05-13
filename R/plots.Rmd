@@ -21,37 +21,37 @@ counts <- merge(counts,swedish,all=TRUE)
 counts$Swe[is.na(counts$Swe)] <- 0
 ```
 
-# Glödlampa
+# Use of *glödlampa*
 
 ```{r glodlampa, echo=FALSE}
 find_swe("glödlamp","blue")
 ```
 
-# Båglampa
+# Use of *båglampa*
 
 ```{r baglampa, echo=FALSE}
 find_swe("båglamp","red")
 ```
 
-# Janduslampa
+# Use of *janduslampa*
 
 ```{r janduslampa, echo=FALSE}
 find_swe("janduslamp","green")
 ```
 
-# Bordslampa
+# Use of *bordslampa*
 
 ```{r bordslampa, echo=FALSE}
 find_swe("bordslamp","orange")
 ```
 
-# Normalljus
+# Use of *normalljus*
 
 ```{r normalljus, echo=FALSE}
 find_swe("normalljus","purple")
 ```
 
-# Ljusstyrka
+# Use of *ljusstyrka*
 
 ```{r ljusstyrka, echo=FALSE}
 find_swe("ljusstyrk","brown")

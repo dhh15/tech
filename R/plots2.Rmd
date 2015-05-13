@@ -26,7 +26,7 @@ counts <- merge(counts,swedish,all=TRUE)
 counts$Swe[is.na(counts$Swe)] <- 0
 ```
 
-# Comparison of 'glödlampa' (blue) and 'båglampa' (red)
+# Comparison of *glödlampa* (blue) and *båglampa* (red)
 
 ```{r comp, echo=FALSE}
 compare_swe("glödlamp","blue","båglamp","red")

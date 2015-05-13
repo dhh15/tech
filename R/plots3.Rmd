@@ -1,0 +1,34 @@
+---
+title: "Words in time"
+author: "Niko Ilomäki"
+date: "Wednesday, May 13, 2015"
+output: markdown_document
+---
+
+```{r, echo=FALSE}
+library(dplyr)
+find_fin <- function(word1, word2, color) {
+	temp <- vol %>% filter(Lang=="fin") %>% filter(grepl(word1,Text)|grepl(word2,Text)) %>% group_by(Year) %>% tally() %>% arrange(Year)
+	temp <- merge(counts,temp,all=TRUE)
+	temp$n[is.na(temp$n)] <- 0
+	temp$pct <- temp$n/temp$Fin
+	plot(temp$Year,temp$pct,type="l",col=color,ylim=c(0,1),xlab="Year",ylab="Ratio")
+}
+vol <- readRDS("vol.Rds")
+counts <- vol %>% group_by(Year) %>% summarise(Total = n()) %>% arrange(Year)
+finnish <- vol %>% filter(Lang=="fin") %>% group_by(Year) %>% summarise(Fin = n()) %>% arrange(Year)
+counts <- merge(counts,finnish,all=TRUE)
+counts$Fin[is.na(counts$Fin)] <- 0
+```
+
+# Use of *sähkövalo*
+
+```{r sahkovalo, echo=FALSE}
+find_fin("sähkövalo","sähkövalo","blue")
+```
+
+# Use of *lamppu*
+
+```{r lamppu, echo=FALSE}
+find_fin("lampp","lampu","green")
+```

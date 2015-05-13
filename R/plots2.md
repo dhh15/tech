@@ -7,6 +7,6 @@ output: markdown_document
 
 
 
-# Comparison of 'glödlampa' (blue) and 'båglampa' (red)
+# Comparison of *glödlampa* (blue) and *båglampa* (red)
 
 ![plot of chunk comp](figure/comp-1.png) 
