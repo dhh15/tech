@@ -1,0 +1,1 @@
+{ "hehkulamput-sve" : ["båglamp", "glödlamp", "elektrisk ljus", "ljuskäll", "ljuskäll", "elektrisk belysning"], "kaasuvalot-swe" : ["gaslyssning"], "valot" : ["lyssning"] }
