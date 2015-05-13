@@ -52,7 +52,7 @@ def locate_word(word, filename):
     for w in wordlist:
         for t in wordlist[w]:
             
-            if t in word and len(word) > 4:
+            if t in word.lower() and len(word) > 4:
                 print(word+"="+t)
                 test = t
             
