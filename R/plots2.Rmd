@@ -1,0 +1,33 @@
+---
+title: "Words in time"
+author: "Niko Ilomäki"
+date: "Wednesday, May 13, 2015"
+output: markdown_document
+---
+
+```{r, echo=FALSE}
+library(dplyr)
+compare_swe <- function(word1,color1,word2,color2) {
+	temp1 <- vol %>% filter(Lang=="swe") %>% filter(grepl(word1,Text)) %>% group_by(Year) %>% tally() %>% arrange(Year)
+	temp1 <- merge(counts,temp1,all=TRUE)
+	temp2 <- vol %>% filter(Lang=="swe") %>% filter(grepl(word2,Text)) %>% group_by(Year) %>% summarise(m = n()) %>% arrange(Year)
+	temp1 <- merge(temp1,temp2,all=TRUE)
+	temp1$n[is.na(temp1$n)] <- 0
+	temp1$m[is.na(temp1$m)] <- 0
+	temp1$n_pct <- temp1$n/temp1$Swe
+	temp1$m_pct <- temp1$m/temp1$Swe
+	plot(temp1$Year,temp1$n_pct,type="l",col=color1,ylim=c(0,1),xlab="Year",ylab="Ratio")
+	lines(temp1$Year,temp1$m_pct,type="l",col=color2,ylim=c(0,1))
+}
+vol <- readRDS("vol.Rds")
+counts <- vol %>% group_by(Year) %>% summarise(Total = n()) %>% arrange(Year)
+swedish <- vol %>% filter(Lang=="swe") %>% group_by(Year) %>% summarise(Swe = n()) %>% arrange(Year)
+counts <- merge(counts,swedish,all=TRUE)
+counts$Swe[is.na(counts$Swe)] <- 0
+```
+
+# Comparison of 'glödlampa' (blue) and 'båglampa' (red)
+
+```{r comp, echo=FALSE}
+compare_swe("glödlamp","blue","båglamp","red")
+```
