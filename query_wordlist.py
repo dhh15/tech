@@ -3,13 +3,16 @@ import json
 import os
 
 # Opening the pre-defined local wordlist
+settings = open("settings.txt", "r").erad()
+settings = json.loads(settings)
+
 wordlist = open("wordlist.txt", "r").read()
 wordlist = json.loads(wordlist)
 
-BASE_URL = "/home/kanner/dhh15/data/nlf_techeng_journals/"
-FOLDS = ["0371-6635/", "1458-6711/", "1458-8625/"]
-
-CONTEXT_LENGTH = 10
+BASE_URL = settings["base_url"]
+FOLDS = settings["folders"]
+CONTEXT_LENGTH = settings["context-length"]
+FREQ_THRESHOLD = settings["frequency-threshold"]
 
 global counter
 counter = 0
@@ -110,7 +113,7 @@ res = ""
 for year in freqs:
     
     for cword in freqs[year]:
-        if freqs[year][cword] > 3:
+        if freqs[year][cword] > FREQ_THRESHOLD:
             res += str(year)+"\t"+cword+"\t"+str(freqs[year][cword])+"\n"
 
 
