@@ -3,7 +3,7 @@ import json
 import os
 
 # Opening the pre-defined local wordlist
-settings = open("settings.txt", "r").erad()
+settings = open("settings.txt", "r").read()
 settings = json.loads(settings)
 
 wordlist = open("wordlist.txt", "r").read()
@@ -11,8 +11,8 @@ wordlist = json.loads(wordlist)
 
 BASE_URL = settings["base_url"]
 FOLDS = settings["folders"]
-CONTEXT_LENGTH = settings["context-length"]
-FREQ_THRESHOLD = settings["frequency-threshold"]
+CONTEXT_LENGTH = settings["context_length"]
+FREQ_THRESHOLD = settings["frequency_threshold"]
 
 global counter
 counter = 0
