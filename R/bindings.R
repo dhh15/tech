@@ -18,3 +18,4 @@ for (i in 1:n_vol) {
 	vol$Lang[i] <- (df %>% filter(BindingId == id))$Lang[1]
 	vol$Text[i] <- toString(rapply((df %>% filter(BindingId == id))$Text,c))
 }
+saveRDS(vol,"vol.Rds")

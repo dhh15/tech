@@ -31,3 +31,9 @@ counts$Swe[is.na(counts$Swe)] <- 0
 ```{r comp, echo=FALSE}
 compare_swe("glödlamp","blue","båglamp","red")
 ```
+
+# Comparison of *båglampa* (red) and *janduslampa* (green)
+
+```{r comp2, echo=FALSE}
+compare_swe("båglamp","red","janduslamp","green")
+```
