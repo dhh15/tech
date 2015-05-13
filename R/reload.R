@@ -1,0 +1,8 @@
+library(dplyr)
+library(tau)
+library(knitr)
+library(rmarkdown)
+df <- readRDS("df.Rds")
+vol <- readRDS("vol.Rds")
+wframe <- readRDS("wframe.Rds")
+freq <- readRDS("freq.Rds")
