@@ -6,6 +6,7 @@ output: markdown_document
 ---
 
 ```{r, echo=FALSE}
+library(igraph)
 freq <- readRDS("freq.Rds")
 frequencies <- freq$n[2:length(freq$n)]
 zipf_x <- log(1:length(frequencies))
@@ -16,6 +17,8 @@ zipf_y <- log(frequencies)
 
 ```{r zipf, echo=FALSE}
 plot(zipf_x,zipf_y,col="seagreen",xlab="Log of rank",ylab="Log of hits")
+abline(a=13.75,b=-0.923,col="navyblue")
+abline(v=7.47,col="orangered")
 ```
 
 ```{r}
