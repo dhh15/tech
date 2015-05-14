@@ -13,7 +13,7 @@ zipf_x <- log(1:length(frequencies))
 zipf_y <- log(frequencies)
 ```
 
-# Zipf's law?
+# What about Zipf's law?
 
 ```{r zipf, echo=FALSE}
 plot(zipf_x,zipf_y,col="seagreen",xlab="Log of rank",ylab="Log of hits")
@@ -22,13 +22,5 @@ abline(v=7.47,col="orangered")
 ```
 
 ```{r}
-power.law.fit(frequencies,xmin=1000)
-```
-
-```{r}
-power.law.fit(frequencies,xmin=700)
-```
-
-```{r}
-power.law.fit(frequencies,xmin=400)
+power.law.fit(frequencies,xmin=947)
 ```
