@@ -22,5 +22,6 @@ abline(v=7.47,col="orangered")
 ```
 
 ```{r}
-power.law.fit(frequencies,xmin=947)
+fit <- power.law.fit(frequencies,xmin=947)
+fit$KS.p
 ```

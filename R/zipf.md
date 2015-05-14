@@ -13,25 +13,10 @@ output: markdown_document
 
 
 ```r
-power.law.fit(frequencies,xmin=947)
+fit <- power.law.fit(frequencies,xmin=947)
+fit$KS.p
 ```
 
 ```
-## $continuous
-## [1] FALSE
-## 
-## $alpha
-## [1] 2.083635
-## 
-## $xmin
-## [1] 947
-## 
-## $logLik
-## [1] -15223.87
-## 
-## $KS.stat
-## [1] 0.009906851
-## 
-## $KS.p
 ## [1] 0.995389
 ```
