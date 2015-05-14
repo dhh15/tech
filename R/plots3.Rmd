@@ -24,11 +24,11 @@ counts$Fin[is.na(counts$Fin)] <- 0
 # Use of *sähkövalo*
 
 ```{r sahkovalo, echo=FALSE}
-find_fin("sähkövalo","sähkövalo","blue")
+find_fin("sähkövalo","sähkövalo","slateblue")
 ```
 
 # Use of *lamppu*
 
 ```{r lamppu, echo=FALSE}
-find_fin("lampp","lampu","green")
+find_fin("lampp","lampu","mediumorchid")
 ```

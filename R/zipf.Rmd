@@ -1,0 +1,31 @@
+---
+title: "Exploring Zipf's law in the corpus"
+author: "Niko Ilomäki"
+date: "Thursday, May 14, 2015"
+output: markdown_document
+---
+
+```{r, echo=FALSE}
+freq <- readRDS("freq.Rds")
+frequencies <- freq$n[2:length(freq$n)]
+zipf_x <- log(1:length(frequencies))
+zipf_y <- log(frequencies)
+```
+
+# Zipf's law?
+
+```{r zipf, echo=FALSE}
+plot(zipf_x,zipf_y,col="seagreen",xlab="Log of rank",ylab="Log of hits")
+```
+
+```{r}
+power.law.fit(frequencies,xmin=1000)
+```
+
+```{r}
+power.law.fit(frequencies,xmin=700)
+```
+
+```{r}
+power.law.fit(frequencies,xmin=400)
+```
